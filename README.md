@@ -3,22 +3,17 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
 
-* Ruby version
+# Run below command before use this app
 
-* System dependencies
+Install gems
+`bundle install`
 
-* Configuration
+Create DB tables
+`rake db:migrate`
 
-* Database creation
+To create Users data
+`rake db:seed`
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Run rake task
+`rails import:csv_data`

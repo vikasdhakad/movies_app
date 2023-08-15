@@ -10,7 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_15_155814) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_15_161224) do
+  create_table "movies", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "year"
+    t.string "director"
+    t.string "actor"
+    t.string "filming_location"
+    t.string "country"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["actor"], name: "index_movies_on_actor"
+    t.index ["name"], name: "index_movies_on_name"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "movie_id"
+    t.integer "stars"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movie_id"], name: "index_reviews_on_movie_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.string "email", default: "", null: false
